@@ -1,0 +1,12 @@
+{
+  "id": "1_animation-q-100",
+  "points": 100,
+  "questionBlocks": [
+    { "type": "audio", "file": "Brad Breeck - Gravity Falls.wav" },
+    { "type": "text", "content": "Назовите анимационный фильм" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Кавер на главную тему из мультсериала «Гравити Фолз»" },
+    { "type": "image", "file": "Gravity Falls.jpg" }
+  ]
+}

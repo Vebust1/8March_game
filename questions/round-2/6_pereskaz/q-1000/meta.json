@@ -1,0 +1,12 @@
+{
+  "id": "6_pereskaz-q-1000",
+  "points": 1000,
+  "questionBlocks": [
+    { "type": "audio", "file": "5q.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "КИШ - Кукла колдуна" },
+    { "type": "image", "file": "a5p.jpg" },
+    { "type": "audio", "file": "5a.wav" }
+  ]
+}

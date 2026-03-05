@@ -1,0 +1,13 @@
+{
+  "id": "8_office_hero-q-200",
+  "points": 200,
+  "questionBlocks": [
+    { "type": "audio", "file": "q1.wav" },
+    { "type": "text", "content": "Назовите песню." }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Новый пират" },
+    { "type": "image", "file": "a1p.webp" },
+    { "type": "audio", "file": "a1.wav" }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "bonus-012",
+  "order": 12,
+  "hintBlocks": [
+    { "type": "text", "content": "Классика!" }
+  ],
+  "questionBlocks": [
+    { "type": "text", "content": "Композитор?" },
+    { "type": "audio", "file": "12_Бах.mp3" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Бах" }
+  ],
+  "options": [
+    { "id": "a", "text": "Бетховен", "correct": false },
+    { "id": "b", "text": "Моцарт", "correct": false },
+    { "id": "c", "text": "Бах", "correct": true },
+    { "id": "d", "text": "Вивальди", "correct": false }
+  ],
+  "allowMultiple": false
+}

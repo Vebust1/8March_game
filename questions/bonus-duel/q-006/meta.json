@@ -1,0 +1,21 @@
+{
+  "id": "bonus-006",
+  "order": 6,
+  "hintBlocks": [
+    { "type": "text", "content": "Ты просто - космос!" }
+  ],
+  "questionBlocks": [
+    { "type": "text", "content": "А кто поет?" },
+    { "type": "audio", "file": "06_Dawid_Bowie.mp3" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "David Bowie" }
+  ],
+  "options": [
+    { "id": "a", "text": "Mick Jagger", "correct": false },
+    { "id": "b", "text": "David Bowie", "correct": true },
+    { "id": "c", "text": "George Michael", "correct": false },
+    { "id": "d", "text": "Сергей Шнуров", "correct": false }
+  ],
+  "allowMultiple": false
+}

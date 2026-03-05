@@ -1,0 +1,13 @@
+{
+  "id": "8_office_hero-q-1000",
+  "points": 1000,
+  "questionBlocks": [
+    { "type": "audio", "file": "q5.wav" },
+    { "type": "text", "content": "Назовите песню." }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Лето" },
+    { "type": "image", "file": "a5p.webp" },
+    { "type": "audio", "file": "a5.wav" }
+  ]
+}

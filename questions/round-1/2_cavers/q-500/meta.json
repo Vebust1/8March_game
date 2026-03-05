@@ -1,0 +1,13 @@
+{
+  "id": "2_cavers-q-500",
+  "points": 500,
+  "questionBlocks": [
+    { "type": "audio", "file": "q5.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Kate Bush" },
+    { "type": "text", "content": "Running Up That Hill - была выпушена в 1985 году. Ее перепевали placebo, within temptation, st vincent. Новую популярность песня получила после вхождения в саундтрек сериала 'Stranger things'" },
+    { "type": "image", "file": "pict5.jpg" },
+    { "type": "audio", "file": "a5.wav" }
+  ]
+}

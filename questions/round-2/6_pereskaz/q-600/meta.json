@@ -1,0 +1,12 @@
+{
+  "id": "6_pereskaz-q-600",
+  "points": 600,
+  "questionBlocks": [
+    { "type": "audio", "file": "3q.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Звери - Районы-кварталы" },
+    { "type": "image", "file": "a3p.jpg" },
+    { "type": "audio", "file": "3a.wav" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "10_8bit-q-300",
+  "points": 300,
+  "questionBlocks": [
+    { "type": "audio", "file": "q1.wav" },
+    { "type": "text", "content": "Первая игра, разработанная в СССР и покорившая мир." }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Korobeiniki - Tetris" },
+    { "type": "image", "file": "a1p.jpg" }
+  ]
+}

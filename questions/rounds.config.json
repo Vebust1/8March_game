@@ -1,0 +1,33 @@
+{
+  "rounds": [
+    {
+      "id": "round-1",
+      "type": "fixed",
+      "folder": "round-1",
+      "params": { "timePerQuestion": 30 }
+    },
+    {
+      "id": "round-2",
+      "type": "countdown",
+      "folder": "round-2",
+      "params": { "totalTime": 30, "multiplier": 1 }
+    },
+    {
+      "id": "round-3",
+      "type": "auction",
+      "folder": "round-3",
+      "params": { "pointsPerQuestion": 20 }
+    },
+    {
+      "id": "round-4",
+      "type": "blitz",
+      "folder": "blitz-test",
+      "params": { "pointsForWinner": 50 }
+    }
+  ],
+  "bonusRound": {
+    "id": "bonus-duel",
+    "type": "bonus-duel",
+    "folder": "bonus-duel"
+  }
+}

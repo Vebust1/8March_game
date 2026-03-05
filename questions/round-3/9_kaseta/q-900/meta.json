@@ -1,0 +1,13 @@
+{
+  "id": "9_kaseta-q-900",
+  "points": 900,
+  "questionBlocks": [
+    { "type": "audio", "file": "q3.wav" },
+    { "type": "text", "content": "Современный мировой хит исполнителя с псевдонимом, связанным с концом недели, и звучанием в стиле 80-х" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "The Weekend - Blinding eyes" },
+    { "type": "image", "file": "a3p.jpg" },
+    { "type": "audio", "file": "a3.wav" }
+  ]
+}

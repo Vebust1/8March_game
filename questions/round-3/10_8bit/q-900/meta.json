@@ -1,0 +1,12 @@
+{
+  "id": "10_8bit-kaseta-q-900",
+  "points": 900,
+  "questionBlocks": [
+    { "type": "audio", "file": "q3.wav" },
+    { "type": "text", "content": "Легенда соула, 'слепой гений'. А в припеве он снова и снова повторяет фразу про то, что 'просто говорит'"}
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Stevie Wonder - I Just Called to Say I Love You" },
+    { "type": "image", "file": "a3p.jpg" }
+  ]
+}

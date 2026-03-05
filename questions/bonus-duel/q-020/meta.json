@@ -1,0 +1,21 @@
+{
+  "id": "bonus-020",
+  "order": 20,
+  "hintBlocks": [
+    { "type": "text", "content": "Тяжёлый кинематографичный индастриал 2025-го." }
+  ],
+  "questionBlocks": [
+    { "type": "text", "content": "Группа" },
+    { "type": "audio", "file": "20_Falling_in_reverse.mp3" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Falling in Reverse" }
+  ],
+  "options": [
+    { "id": "a", "text": "Bring Me The Horizon", "correct": false },
+    { "id": "b", "text": "Motionless In White", "correct": false },
+    { "id": "c", "text": "Falling in Reverse", "correct": true },
+    { "id": "d", "text": "Asking Alexandria", "correct": false }
+  ],
+  "allowMultiple": false
+}

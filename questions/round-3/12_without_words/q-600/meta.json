@@ -1,0 +1,12 @@
+{
+  "id": "12_without_words-q-600",
+  "points": 600,
+  "questionBlocks": [
+    { "type": "audio", "file": "q2.wav" },
+    { "type": "text", "content": "Под этот бит мир впервые увидел движение, нарушающее законы физики: артист будто идет вперед, но на самом деле плавно скользит назад." }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Michael Jackson - Billie jean" },
+    { "type": "image", "file": "a2p.jpg" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "12_without_words-q-900",
+  "points": 900,
+  "questionBlocks": [
+    { "type": "audio", "file": "q3.wav" },
+    { "type": "text", "content": "Эта меланхоличная баллада считается самой исполняемой в истории музыки. В ней автор тоскует по давно прошедшему счастливому времени."}
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Beatles - Yesterday" },
+    { "type": "image", "file": "a3p.jpg" }
+  ]
+}

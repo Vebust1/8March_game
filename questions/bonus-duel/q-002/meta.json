@@ -1,0 +1,21 @@
+{
+  "id": "bonus-002",
+  "order": 2,
+  "hintBlocks": [
+    { "type": "text", "content": "Геометрическая фигура" }
+  ],
+  "questionBlocks": [
+    { "type": "text", "content": "Испольнитель?" },
+    { "type": "audio", "file": "02_Круг.mp3" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Михаил Круг" }
+  ],
+  "options": [
+    { "id": "a", "text": "Круг", "correct": true },
+    { "id": "b", "text": "Квадрат", "correct": false },
+    { "id": "c", "text": "Треугольник", "correct": false },
+    { "id": "d", "text": "Параллелограм", "correct": false }
+  ],
+  "allowMultiple": false
+}

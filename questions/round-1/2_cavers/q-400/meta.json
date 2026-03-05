@@ -1,0 +1,14 @@
+{
+  "id": "2_cavers-q-400",
+  "points": 400,
+  "questionBlocks": [
+    { "type": "audio", "file": "q4.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Coolio ИЛИ Stivie Wonder" },
+    { "type": "text", "content": "Gangsta's paradise - Песня была записана в 1995 году; в ней используются семплы и мелодия припева песни Стиви Уандера 'Pastime Paradise'. Является одной из немногих песен Кулио, не содержащих ненормативной лексики: иначе Уандер не позволил бы использовать его музыку." },
+
+    { "type": "image", "file": "pict4.jpg" },
+    { "type": "audio", "file": "a4.wav" }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "bonus-019",
+  "order": 19,
+  "hintBlocks": [
+    { "type": "text", "content": "Летняя тоска" }
+  ],
+  "questionBlocks": [
+    { "type": "text", "content": "А кто тут грустит?" },
+    { "type": "audio", "file": "19_Lorde.mp3" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Lorde" }
+  ],
+  "options": [
+    { "id": "a", "text": "Lana Del Rey", "correct": false },
+    { "id": "b", "text": "Lorde", "correct": true },
+    { "id": "c", "text": "Billie Eilish", "correct": false },
+    { "id": "d", "text": "Florence + The Machine", "correct": false }
+  ],
+  "allowMultiple": false
+}

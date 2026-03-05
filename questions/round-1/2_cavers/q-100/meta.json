@@ -1,0 +1,13 @@
+{
+  "id": "2_cavers-q-100",
+  "points": 100,
+  "questionBlocks": [
+    { "type": "audio", "file": "q1.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Hi-Fi" },
+    { "type": "text", "content": "Эту песня стала талисманом группы, играла на почти всех концертах. Предварялась известными строками - ты лети лети лепесток через запад на восток." },
+    { "type": "image", "file": "pict1.webp" },
+    { "type": "audio", "file": "a1.wav" }
+  ]
+}

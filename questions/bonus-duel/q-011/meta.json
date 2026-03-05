@@ -1,0 +1,21 @@
+{
+  "id": "bonus-011",
+  "order": 11,
+  "hintBlocks": [
+    { "type": "text", "content": "Пошли тяжелые песни ..." }
+  ],
+  "questionBlocks": [
+    { "type": "text", "content": "Назовите группу, исполняющую оригинал" },
+    { "type": "audio", "file": "11_Deep_purple.mp3" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Deep Purple" }
+  ],
+  "options": [
+    { "id": "a", "text": "Led Zeppelin", "correct": false },
+    { "id": "b", "text": "Uriah Heep", "correct": false },
+    { "id": "c", "text": "Deep Purple", "correct": true },
+    { "id": "d", "text": "Black Sabbath", "correct": false }
+  ],
+  "allowMultiple": false
+}

@@ -1,0 +1,12 @@
+{
+  "id": "4_rock-q-200",
+  "points": 200,
+  "questionBlocks": [
+    { "type": "text", "content": "Назовите группу" },
+    { "type": "audio", "file": "q.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Evanescence - Bring me to life" },
+    { "type": "image", "file": "a.jpg" }
+  ]
+}

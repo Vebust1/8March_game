@@ -1,0 +1,13 @@
+{
+  "id": "11_reverse-q-600",
+  "points": 600,
+  "questionBlocks": [
+    { "type": "audio", "file": "2q.wav" },
+    { "type": "text", "content": "Когда парень уже потерял всякую надежду познакомиться с \"красоткой\", она вернулась." }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Roy Orbison -  Pretty Woman" },
+    { "type": "text", "content": "Вторую волну популярности песне Pretty Woman принес фильм \"Красотка\", а исполнял песню Рой Орбисон (а не Элвис Пресли, как многие ошибочно думают)." },
+    { "type": "audio", "file": "2a.wav" }
+  ]
+}

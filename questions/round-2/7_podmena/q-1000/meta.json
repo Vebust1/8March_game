@@ -1,0 +1,12 @@
+{
+  "id": "7_podmena-q-1000",
+  "points": 1000,
+  "questionBlocks": [
+    { "type": "audio", "file": "q5.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Abba - Gimmie! Gimmie! Gimmie!" },
+    { "type": "image", "file": "a5p.jpg" },
+    { "type": "audio", "file": "a5.wav" }
+  ]
+}

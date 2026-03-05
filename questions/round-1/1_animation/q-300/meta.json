@@ -1,0 +1,13 @@
+{
+  "id": "1_animation-q-300",
+  "points": 300,
+  "questionBlocks": [
+    { "type": "audio", "file": "Arcane.wav" },
+    { "type": "text", "content": "Назовите анимационный фильм" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Вступительная тема из мультсериала «Аркейн»" },
+    { "type": "text", "content": "Один из центральных героев - буквально человек, приносящий несчастье" },
+    { "type": "image", "file": "Arcane.webp" }
+  ]
+}

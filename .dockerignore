@@ -1,0 +1,6 @@
+node_modules
+.env
+*.log
+.cursor
+design-example
+README.md

@@ -1,0 +1,13 @@
+{
+  "id": "5_zastavka-q-200",
+  "points": 200,
+  "questionBlocks": [
+    { "type": "audio", "file": "Disney.wav" },
+    { "type": "text", "content": "Назовите кинокомпанию" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Современная заствка кинокомпании Disney" },
+    { "type": "text", "content": "Что тебе снится, крейсер Аврора" },
+    { "type": "image", "file": "Disney.webp" }
+  ]
+}

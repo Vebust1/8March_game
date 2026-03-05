@@ -1,0 +1,12 @@
+{
+  "id": "4_rock-q-100",
+  "points": 100,
+  "questionBlocks": [
+    { "type": "text", "content": "Назовите исполнительницу" },
+    { "type": "audio", "file": "q1.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Земфира - Искала" },
+    { "type": "image", "file": "a1.jpg" }
+  ]
+}

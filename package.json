@@ -1,0 +1,14 @@
+{
+  "name": "ugadai-melodiu",
+  "version": "1.0.0",
+  "description": "Игра «Угадай мелодию» — угадывание мелодий за отведённое время",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2"
+  }
+}

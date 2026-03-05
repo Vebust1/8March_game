@@ -1,0 +1,12 @@
+{
+  "id": "10_8bit-q-1500",
+  "points": 1500,
+  "questionBlocks": [
+    { "type": "audio", "file": "q5.wav" },
+    { "type": "text", "content": "Он дал популярность дабстпепу в 2012-ом. Дабстеп, который встречается с регги/дансхоллом, и сразу хочется устроить движ.." }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Skrillex - Make It Bun Dem" },
+    { "type": "image", "file": "a5p.jpg" }
+  ]
+}

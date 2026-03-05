@@ -1,0 +1,13 @@
+{
+  "id": "5_zastavka-q-1000",
+  "points": 1000,
+  "questionBlocks": [
+    { "type": "audio", "file": "Metro Goldwyn Mayer.wav" },
+    { "type": "text", "content": "Назовите кинокомпанию" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Заставка кинокомпании Metro Goldwyn Mayer" },
+    { "type": "text", "content": "Самый известный бренд - Том и Джерри" },
+    { "type": "image", "file": "MGM.jpg" }
+  ]
+}

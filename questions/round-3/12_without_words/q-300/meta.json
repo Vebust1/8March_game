@@ -1,0 +1,12 @@
+{
+  "id": "12_without_words-q-300",
+  "points": 300,
+  "questionBlocks": [
+    { "type": "audio", "file": "q1.wav" },
+    { "type": "text", "content": "Финальное послание великого музыканта, записанное на пределе физических и эмоциональных сил." }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Queen - Show must go on" },
+    { "type": "image", "file": "a1p.jpg" }
+  ]
+}

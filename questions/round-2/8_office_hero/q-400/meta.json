@@ -1,0 +1,13 @@
+{
+  "id": "8_office_hero-q-400",
+  "points": 400,
+  "questionBlocks": [
+    { "type": "audio", "file": "q2.wav" },
+    { "type": "text", "content": "Назовите песню." }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Смертельная битва" },
+    { "type": "image", "file": "a2p.jpg" },
+    { "type": "audio", "file": "a2.wav" }
+  ]
+}

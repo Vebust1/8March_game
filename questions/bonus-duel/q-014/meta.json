@@ -1,0 +1,21 @@
+{
+  "id": "bonus-014",
+  "order": 14,
+  "hintBlocks": [
+    { "type": "text", "content": "Царицы" }
+  ],
+  "questionBlocks": [
+    { "type": "text", "content": "Которая?" },
+    { "type": "audio", "file": "14_Мари_Кр.mp3" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Мари Краймбрери" }
+  ],
+  "options": [
+    { "id": "a", "text": "Zivert", "correct": false },
+    { "id": "b", "text": "Клава Кока", "correct": false },
+    { "id": "c", "text": "Anna Asti", "correct": false },
+    { "id": "d", "text": "Мари Краймбрери", "correct": true }
+  ],
+  "allowMultiple": false
+}

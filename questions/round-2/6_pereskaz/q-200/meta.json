@@ -1,0 +1,12 @@
+{
+  "id": "6_pereskaz-q-200",
+  "points": 200,
+  "questionBlocks": [
+    { "type": "audio", "file": "1q.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Imagine Dragons - Believer" },
+    { "type": "image", "file": "a1p.jpg" },
+    { "type": "audio", "file": "1a.wav" }
+  ]
+}

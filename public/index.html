@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Угадай мелодию</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body data-view="host">
+  <div id="audio-unlock-overlay" class="audio-unlock-overlay" role="button" tabindex="0">
+    <span>Нажмите для включения звука</span>
+  </div>
+  <div id="app">
+    <div id="host-view" class="view active"></div>
+    <div id="guest-view" class="view"></div>
+    <div id="player-view" class="view"></div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="/js/confetti-fireworks.js"></script>
+  <script src="/js/qrcode.simple.js"></script>
+  <script src="/js/socket-client.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

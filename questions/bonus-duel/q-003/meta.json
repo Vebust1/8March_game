@@ -1,0 +1,21 @@
+{
+  "id": "bonus-003",
+  "order": 3,
+  "hintBlocks": [
+    { "type": "text", "content": "Рок по-королевски" }
+  ],
+  "questionBlocks": [
+    { "type": "text", "content": "Назовите песню" },
+    { "type": "audio", "file": "03_Bohemian_rhapsody.mp3" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Bohemian Rhapsody" }
+  ],
+  "options": [
+    { "id": "a", "text": "Under Pressure", "correct": false },
+    { "id": "b", "text": "We Will Rock You", "correct": false },
+    { "id": "c", "text": "Bohemian Rhapsody", "correct": true },
+    { "id": "d", "text": "We Are the Champions", "correct": false }
+  ],
+  "allowMultiple": false
+}

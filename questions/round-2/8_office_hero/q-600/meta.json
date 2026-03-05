@@ -1,0 +1,13 @@
+{
+  "id": "8_office_hero-q-600",
+  "points": 600,
+  "questionBlocks": [
+    { "type": "audio", "file": "q3.wav" },
+    { "type": "text", "content": "Назовите песню." }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Самолёт" },
+    { "type": "image", "file": "a3p.jpg" },
+    { "type": "audio", "file": "a3.wav" }
+  ]
+}

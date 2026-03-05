@@ -1,0 +1,21 @@
+{
+  "id": "bonus-005",
+  "order": 5,
+  "hintBlocks": [
+    { "type": "text", "content": "Про запрещенные вещества" }
+  ],
+  "questionBlocks": [
+    { "type": "text", "content": "Назовите испольнителя" },
+    { "type": "audio", "file": "05_Jane_air.mp3" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Jane Air" }
+  ],
+  "options": [
+    { "id": "a", "text": "Анна Каренина", "correct": false },
+    { "id": "b", "text": "Скарлетт О’Хара", "correct": false },
+    { "id": "c", "text": "Джейн Эйр", "correct": true },
+    { "id": "d", "text": "Элизабет Беннет", "correct": false }
+  ],
+  "allowMultiple": false
+}

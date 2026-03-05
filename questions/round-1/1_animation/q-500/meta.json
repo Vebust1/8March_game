@@ -1,0 +1,13 @@
+{
+  "id": "1_animation-q-500",
+  "points": 500,
+  "questionBlocks": [
+    { "type": "audio", "file": "Винни Пух.wav" },
+    { "type": "text", "content": "Назовите анимационный фильм" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Вступительная тема из мультфильма Винни Пух" },
+    { "type": "text", "content": "Будь здорова" },
+    { "type": "image", "file": "Винни Пух.jpg" }
+  ]
+}

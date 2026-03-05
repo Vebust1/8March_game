@@ -1,0 +1,21 @@
+{
+  "id": "bonus-017",
+  "order": 17,
+  "hintBlocks": [
+    { "type": "text", "content": "Бардовская песня про горы" }
+  ],
+  "questionBlocks": [
+    { "type": "text", "content": "Назовите исполнителя" },
+    { "type": "audio", "file": "17_Визбор.mp3" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Юрий Визбор" }
+  ],
+  "options": [
+    { "id": "a", "text": "Владимир Высоцкий", "correct": false },
+    { "id": "b", "text": "Олег Митяев", "correct": false },
+    { "id": "c", "text": "Александр Городницкий", "correct": false },
+    { "id": "d", "text": "Юрий Визбор", "correct": true }
+  ],
+  "allowMultiple": false
+}

@@ -1,0 +1,12 @@
+{
+  "id": "10_8bit-q-1200",
+  "points": 1200,
+  "questionBlocks": [
+    { "type": "audio", "file": "q4.wav" },
+    { "type": "text", "content": "Cамый узнаваемый опенинг 90-х с огромными мехами и психологией." }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Evangelion - A Cruel Angel’s Thesis" },
+    { "type": "image", "file": "a4p.jpg" }
+  ]
+}

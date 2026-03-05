@@ -1,0 +1,12 @@
+{
+  "id": "7_podmena-q-800",
+  "points": 800,
+  "questionBlocks": [
+    { "type": "audio", "file": "q4.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Пицца - Оружие" },
+    { "type": "image", "file": "a4p.jpg" },
+    { "type": "audio", "file": "a4.wav" }
+  ]
+}

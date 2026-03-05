@@ -1,0 +1,21 @@
+{
+  "id": "bonus-001",
+  "order": 1,
+  "hintBlocks": [
+    { "type": "text", "content": "Hands Up!" }
+  ],
+  "questionBlocks": [
+    { "type": "text", "content": "Назовите песню" },
+    { "type": "audio", "file": "01_Крошка_моя.mp3" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Крошка моя" }
+  ],
+  "options": [
+    { "id": "a", "text": "Крошка моя", "correct": true },
+    { "id": "b", "text": "18 мне уже", "correct": false },
+    { "id": "c", "text": "Студент", "correct": false },
+    { "id": "d", "text": "Он тебя целует", "correct": false }
+  ],
+  "allowMultiple": false
+}

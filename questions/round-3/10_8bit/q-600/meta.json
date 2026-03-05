@@ -1,0 +1,12 @@
+{
+  "id": "10_8bit-q-600",
+  "points": 600,
+  "questionBlocks": [
+    { "type": "audio", "file": "q2.wav" },
+    { "type": "text", "content": "Игра по мотивам одноименного мультсериала. Разработанна студией Capcom." }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Марк Мюллер - Duck Tales (Утинные истории)" },
+    { "type": "image", "file": "a2p.jpg" }
+  ]
+}

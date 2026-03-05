@@ -1,0 +1,13 @@
+{
+  "id": "9_kaseta-q-300",
+  "points": 300,
+  "questionBlocks": [
+    { "type": "audio", "file": "q1.wav" },
+    { "type": "text", "content": "Песня про чувство, которое похоже на опасный яд. Один из главных поп-хитов и исполнителя начала 2000-х." }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Britney Spears - Toxic" },
+    { "type": "image", "file": "a1p.jpg" },
+    { "type": "audio", "file": "a1.wav" }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "bonus-010",
+  "order": 10,
+  "hintBlocks": [
+    { "type": "text", "content": "Если спросят меня где взяла ... ?" }
+  ],
+  "questionBlocks": [
+    { "type": "text", "content": "Назовите группу, исполняющую кавер" },
+    { "type": "audio", "file": "10_Заточка.mp3" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Заточка" }
+  ],
+  "options": [
+    { "id": "a", "text": "Anacondaz", "correct": false },
+    { "id": "b", "text": "Заточка", "correct": true },
+    { "id": "c", "text": "Дайте танк (!)", "correct": false },
+    { "id": "d", "text": "F.P.G.", "correct": false }
+  ],
+  "allowMultiple": false
+}

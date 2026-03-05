@@ -1,0 +1,12 @@
+{
+  "id": "6_pereskaz-q-800",
+  "points": 800,
+  "questionBlocks": [
+    { "type": "audio", "file": "4q.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Lady Gaga - Bad Romance" },
+    { "type": "image", "file": "a4p.jpg" },
+    { "type": "audio", "file": "4a.wav" }
+  ]
+}

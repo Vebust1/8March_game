@@ -1,0 +1,21 @@
+{
+  "id": "bonus-007",
+  "order": 7,
+  "hintBlocks": [
+    { "type": "text", "content": "Что-то из кальянного рэпа" }
+  ],
+  "questionBlocks": [
+    { "type": "text", "content": "Исполнитель?" },
+    { "type": "audio", "file": "07_Ramil.mp3" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Ramil'" }
+  ],
+  "options": [
+    { "id": "a", "text": "HammAli & Navai", "correct": false },
+    { "id": "b", "text": "Ramil'", "correct": true },
+    { "id": "c", "text": "Jah Khalib", "correct": false },
+    { "id": "d", "text": "MiyaGi & Andy Panda", "correct": false }
+  ],
+  "allowMultiple": false
+}

@@ -1,0 +1,21 @@
+{
+  "id": "bonus-018",
+  "order": 18,
+  "hintBlocks": [
+    { "type": "text", "content": "Верни мне мой 2007-й!" }
+  ],
+  "questionBlocks": [
+    { "type": "text", "content": "Назовите группу" },
+    { "type": "audio", "file": "18_My_checm_romance.mp3" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "My Chemical Romance" }
+  ],
+  "options": [
+    { "id": "a", "text": "Fall Out Boy", "correct": false },
+    { "id": "b", "text": "The Used", "correct": false },
+    { "id": "c", "text": "My Chemical Romance", "correct": true },
+    { "id": "d", "text": "Paramore", "correct": false }
+  ],
+  "allowMultiple": false
+}

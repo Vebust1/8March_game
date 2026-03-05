@@ -1,0 +1,12 @@
+{
+  "id": "5_zastavka-q-600",
+  "points": 600,
+  "questionBlocks": [
+    { "type": "audio", "file": "Universal Pictures.wav" },
+    { "type": "text", "content": "Назовите кинокомпанию" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Заставка кинокомпании Universal Pictures" },
+    { "type": "image", "file": "Universal Pirctures.jpg" }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "bonus-009",
+  "order": 9,
+  "hintBlocks": [
+    { "type": "text", "content": "Рэп про тачку! Или нет?" }
+  ],
+  "questionBlocks": [
+    { "type": "text", "content": "Кто зачитал?" },
+    { "type": "audio", "file": "09_Моргенштерн.mp3" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Morgenshtern" }
+  ],
+  "options": [
+    { "id": "a", "text": "Macan", "correct": false },
+    { "id": "b", "text": "Егор Крид", "correct": false },
+    { "id": "c", "text": "Morgenshtern", "correct": true },
+    { "id": "d", "text": "Feduk", "correct": false }
+  ],
+  "allowMultiple": false
+}

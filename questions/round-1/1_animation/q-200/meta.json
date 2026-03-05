@@ -1,0 +1,13 @@
+{
+  "id": "1_animation-q-200",
+  "points": 200,
+  "questionBlocks": [
+    { "type": "audio", "file": "Death Note.wav" },
+    { "type": "text", "content": "Назовите анимационный фильм" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Тема L из аниме «Тетрадь смерти»" },
+    { "type": "text", "content": "Я узнаю, кто на самом деле наш специалист по безопасности" },
+    { "type": "image", "file": "Death-Note.jpeg" }
+  ]
+}

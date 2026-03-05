@@ -1,0 +1,13 @@
+{
+  "id": "1_animation-q-400",
+  "points": 400,
+  "questionBlocks": [
+    { "type": "audio", "file": "Следствие ведут колобки.wav" },
+    { "type": "text", "content": "Назовите анимационный фильм" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Главная тема из мультсериала «Следствие ведут колобки»" },
+    { "type": "text", "content": "При звуках флейты... аналогично" },
+    { "type": "image", "file": "Следствие ведут колобки.jpg" }
+  ]
+}

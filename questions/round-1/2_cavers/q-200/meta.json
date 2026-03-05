@@ -1,0 +1,13 @@
+{
+  "id": "2_cavers-q-200",
+  "points": 200,
+  "questionBlocks": [
+    { "type": "audio", "file": "q2.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Кино, Виктор Цой" },
+    { "type": "text", "content": "Одна из последних песен Виктора Цоя. Ее перепевала Земфира и Полина Гагарина. " },
+    { "type": "image", "file": "pict2.webp" },
+    { "type": "audio", "file": "a2.wav" }
+  ]
+}

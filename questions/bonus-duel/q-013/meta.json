@@ -1,0 +1,21 @@
+{
+  "id": "bonus-013",
+  "order": 13,
+  "hintBlocks": [
+    { "type": "text", "content": "Ретро - фишинг" }
+  ],
+  "questionBlocks": [
+    { "type": "text", "content": "А кто поет?" },
+    { "type": "audio", "file": "13_Rick_astley.mp3" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Rick Astley" }
+  ],
+  "options": [
+    { "id": "a", "text": "Rick Astley", "correct": true },
+    { "id": "b", "text": "A-ha", "correct": false },
+    { "id": "c", "text": "Tears For Fears", "correct": false },
+    { "id": "d", "text": "Wham!", "correct": false }
+  ],
+  "allowMultiple": false
+}

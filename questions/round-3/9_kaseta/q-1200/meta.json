@@ -1,0 +1,13 @@
+{
+  "id": "9_kaseta-q-1200",
+  "points": 1200,
+  "questionBlocks": [
+    { "type": "audio", "file": "q4.wav" },
+    { "type": "text", "content": "Один из самых известных танцевальных гимнов конца 90-х, который публика обычно начинает петь раньше вокала" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Сергей Жуков (Руки вверх!) - 18 мне уже" },
+    { "type": "image", "file": "a4p.jpg" },
+    { "type": "audio", "file": "a4.wav" }
+  ]
+}

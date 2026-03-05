@@ -1,0 +1,13 @@
+{
+  "id": "8_office_hero-q-800",
+  "points": 800,
+  "questionBlocks": [
+    { "type": "audio", "file": "q4.wav" },
+    { "type": "text", "content": "Назовите песню" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Экспедиция на Марс" },
+    { "type": "image", "file": "a4p.jpg" },
+    { "type": "audio", "file": "a4.wav" }
+  ]
+}

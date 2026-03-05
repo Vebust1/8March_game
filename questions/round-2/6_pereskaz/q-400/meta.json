@@ -1,0 +1,12 @@
+{
+  "id": "6_pereskaz-q-400",
+  "points": 400,
+  "questionBlocks": [
+    { "type": "audio", "file": "2q.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Rihanna - Umbrella" },
+    { "type": "image", "file": "a2p.jpg" },
+    { "type": "audio", "file": "2a.wav" }
+  ]
+}

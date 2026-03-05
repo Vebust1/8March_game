@@ -1,0 +1,12 @@
+{
+  "id": "7_podmena-q-400",
+  "points": 400,
+  "questionBlocks": [
+    { "type": "audio", "file": "q2.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Artik & Asti - Грустный дэнс" },
+    { "type": "image", "file": "a2p.jpg" },
+    { "type": "audio", "file": "a2.wav" }
+  ]
+}

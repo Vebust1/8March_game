@@ -1,0 +1,12 @@
+{
+  "id": "12_without_words-q-1200",
+  "points": 1200,
+  "questionBlocks": [
+    { "type": "audio", "file": "q4.wav" },
+    { "type": "text", "content": "Этот диско-хит часто используют врачи как идеальный метроном для реанимации сердца." }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Bee Gees - Stayin alive" },
+    { "type": "image", "file": "a4p.jpg" }
+  ]
+}

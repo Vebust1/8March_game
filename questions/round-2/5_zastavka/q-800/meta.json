@@ -1,0 +1,13 @@
+{
+  "id": "5_zastavka-q-800",
+  "points": 800,
+  "questionBlocks": [
+    { "type": "audio", "file": "Valve.wav" },
+    { "type": "text", "content": "Назовите компанию - разработчика игр" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Заставка игровой компании Valve" },
+    { "type": "text", "content": "Проснитесь и пойте. Нет, я не хочу сказать, что вы спите на работе. Никто не заслуживает отдыха больше вашего" },
+    { "type": "image", "file": "Valve.jpg" }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "2_cavers-q-300",
+  "points": 300,
+  "questionBlocks": [
+    { "type": "audio", "file": "q3.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Nirvana, Курт Кобейн" },
+    { "type": "text", "content": "Smells like teen spirit. По мнению экспертов, песня стала 'гимном поколения Х', закрепив гранж в радиоэфире крупнейших станций." },
+    { "type": "image", "file": "pict3.webp" },
+    { "type": "audio", "file": "a3.wav" }
+  ]
+}

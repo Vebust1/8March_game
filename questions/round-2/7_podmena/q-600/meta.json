@@ -1,0 +1,12 @@
+{
+  "id": "7_podmena-q-600",
+  "points": 600,
+  "questionBlocks": [
+    { "type": "audio", "file": "q3.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Валерий Меладзе - Небеса" },
+    { "type": "image", "file": "a3p.jiff" },
+    { "type": "audio", "file": "a3.wav" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "4_rock-q-300",
+  "points": 300,
+  "questionBlocks": [
+    { "type": "text", "content": "Назовите группу" },
+    { "type": "audio", "file": "q.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Ночные Снайперы - Катастрофически" },
+    { "type": "image", "file": "a.jpg" }
+  ]
+}

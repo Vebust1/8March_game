@@ -1,0 +1,13 @@
+{
+  "id": "4_rock-q-500",
+  "points": 500,
+  "questionBlocks": [
+    { "type": "text", "content": "Назовите группу. Бонус: назовите солистку." },
+    { "type": "audio", "file": "q.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Linkin Park - The Emptiness Machine" },
+    { "type": "text", "content": "Солистка - Эмили Армстронг" },
+    { "type": "image", "file": "a.jpg" }
+  ]
+}

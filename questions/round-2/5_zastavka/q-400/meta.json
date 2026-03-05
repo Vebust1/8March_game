@@ -1,0 +1,13 @@
+{
+  "id": "5_zastavka-q-400",
+  "points": 400,
+  "questionBlocks": [
+    { "type": "audio", "file": "Marvel Comics.wav" },
+    { "type": "text", "content": "Назовите развлекательную компанию" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Заставка Marvel Comics" },
+    { "type": "text", "content": "Совместно работала с компанией Sony. Не всегда результат был успешен." },
+    { "type": "image", "file": "Marvel.jpg" }
+  ]
+}

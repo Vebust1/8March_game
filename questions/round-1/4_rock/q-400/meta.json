@@ -1,0 +1,12 @@
+{
+  "id": "4_rock-q-400",
+  "points": 400,
+  "questionBlocks": [
+    { "type": "text", "content": "Назовите исполнительницу" },
+    { "type": "audio", "file": "q.wav" }
+  ],
+  "answerBlocks": [
+    { "type": "text", "content": "Avril Lavigne - Complicated" },
+    { "type": "image", "file": "a.jpg" }
+  ]
+}
