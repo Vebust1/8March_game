@@ -1,5 +1,5 @@
 {
-  "id": "3_spoyu-400",
+  "id": "3_spoyu-q-400",
   "points": 400,
   "questionBlocks": [
     { "type": "audio", "file": "4q.mp3" },
@@ -7,7 +7,11 @@
   ],
   "answerBlocks": [
     { "type": "text", "content": "Юрий Антонов - Нет тебя прекрасней" },
-    { "type": "text", "content": "А я повторяю вновь и вновь -\nНе умирай, любовь,\nНе умирай, любовь,\nНе умирай, любовь!" },
+    { "type": "text", "content": "" },
+    { "type": "text", "content": "А я повторяю вновь и вновь -" },
+    { "type": "text", "content": "Не умирай, любовь," },
+    { "type": "text", "content": "Не умирай, любовь," },
+    { "type": "text", "content": "Не умирай, любовь!" },
     { "type": "audio", "file": "4a.mp3" }
   ]
 }
