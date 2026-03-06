@@ -8,10 +8,10 @@
   "answerBlocks": [
     { "type": "text", "content": "Стас Михайлов - Всё для тебя" },
     { "type": "text", "content": "" },
-    { "type": "text", "content": "Всё для тебя: рассветы и туманы" }
-    { "type": "text", "content": "Для тебя моря и океаны" }
-    { "type": "text", "content": "Для тебя цветочные поляны" }
-    { "type": "text", "content": "Для тебя" }
+    { "type": "text", "content": "Всё для тебя: рассветы и туманы" },
+    { "type": "text", "content": "Для тебя моря и океаны" },
+    { "type": "text", "content": "Для тебя цветочные поляны" },
+    { "type": "text", "content": "Для тебя" },
     { "type": "audio", "file": "2a.mp3" }
   ]
 }
