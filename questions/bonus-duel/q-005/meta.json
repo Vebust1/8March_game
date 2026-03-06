@@ -5,7 +5,7 @@
     { "type": "text", "content": "Про запрещенные вещества" }
   ],
   "questionBlocks": [
-    { "type": "text", "content": "Назовите испольнителя" },
+    { "type": "text", "content": "Назовите исполнителя" },
     { "type": "audio", "file": "05_Jane_air.mp3" }
   ],
   "answerBlocks": [

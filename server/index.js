@@ -6,7 +6,7 @@ const { Server } = require('socket.io');
 const app = express();
 const server = http.createServer(app);
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 // Статика
 app.use(express.static(path.join(__dirname, '../public')));
@@ -34,7 +34,7 @@ const { loadRoundQuestions } = require('./loaders/questions');
 
 app.get('/api/config', (req, res) => {
   const config = loadRoundsConfig();
-  const playerBaseUrl = process.env.PLAYER_BASE_URL || `http://localhost:${PORT}`;
+  const playerBaseUrl = process.env.PLAYER_BASE_URL || `http://192.168.5.166:${PORT}`;
   res.json({ ...config, playerBaseUrl });
 });
 

@@ -34,6 +34,8 @@ let state = {
   bonusEliminated: new Set(), // выбывшие на этапе 2
   bonusQuestionPhase: null, // 'choices' | 'question' | 'reveal'
   bonusFinished: false,
+  bonusAnswerTimeMs: {}, // playerId -> суммарное время ответа (мс)
+  bonusQuestionStartTime: null, // время показа текущего вопроса дуэли
 };
 
 function encodePath(pathStr) {
@@ -111,6 +113,7 @@ function getState() {
           playerChoices: state.bonusPlayerChoices || {},
           playerAnswers: state.bonusPlayerAnswers || {},
           finished: state.bonusFinished,
+          timesMs: state.bonusAnswerTimeMs || {},
           // URL аудио вопроса дуэли (для воспроизведения при фазе 'question')
           audioUrl:
             state.bonusQuestionPhase === 'question' &&
@@ -125,6 +128,7 @@ function getState() {
       : {
           active: false,
           finished: state.bonusFinished,
+          timesMs: state.bonusAnswerTimeMs || {},
         },
   };
 }
@@ -188,31 +192,12 @@ function selectQuestion(io, data) {
     state.currentQuestion = q;
     state.answerRevealed = false;
     state.answeredIds.add(q.id);
-    state.questionStartTime = state.currentRound?.type === 'auction' ? null : Date.now();
-    if (state.questionTimer) clearInterval(state.questionTimer);
-    const params = state.currentRound?.params || {};
-    const totalTime = params.totalTime || params.timePerQuestion || 30;
-    if (state.currentRound?.type === 'countdown') {
-      let remaining = totalTime;
-      state.countdownRemaining = remaining;
-      state.questionTimer = setInterval(() => {
-        remaining -= 1;
-        state.countdownRemaining = remaining;
-        io.emit('game:countdown', { remaining, total: totalTime });
-        if (remaining <= 0 && state.questionTimer) {
-          clearInterval(state.questionTimer);
-          state.questionTimer = null;
-          state.answerRevealed = true;
-          emitState(io);
-        }
-      }, 1000);
-    } else if (state.currentRound?.type === 'fixed') {
-      state.questionTimer = setTimeout(() => {
-        state.questionTimer = null;
-        state.answerRevealed = true;
-        emitState(io);
-      }, (params.timePerQuestion || 30) * 1000);
+    // таймер и questionStartTime для обычных раундов теперь запускаются по кнопке ведущего «Слушаем»
+    if (state.questionTimer) {
+      clearInterval(state.questionTimer);
+      state.questionTimer = null;
     }
+    state.questionStartTime = state.currentRound?.type === 'auction' ? null : null;
     let audioUrl = null;
     if (state.currentRound?.type !== 'auction') {
       const firstAudio = (q.questionBlocks || []).find((b) => b.type === 'audio');
@@ -256,7 +241,44 @@ function initGameHandlers(io) {
     });
 
     socket.on('host:play-audio', ({ url }) => {
-      if (url) io.emit('game:play-audio', { url });
+      if (!url) return;
+      io.emit('game:play-audio', { url });
+      // запуск таймера для обычных раундов только при нажатии «Слушаем» на вопросе
+      if (state.currentQuestion && !state.answerRevealed && state.currentRound?.type !== 'auction') {
+        const q = state.currentQuestion;
+        // URL аудио вопроса, как в selectQuestion/getState
+        const firstAudio = (q.questionBlocks || []).find((b) => b.type === 'audio');
+        const questionUrl =
+          firstAudio && q.basePath ? '/' + encodePath(q.basePath) + '/' + encodeURIComponent(firstAudio.file) : null;
+        if (questionUrl && questionUrl === url && !state.questionTimer) {
+          const params = state.currentRound?.params || {};
+          const totalTime = params.totalTime || params.timePerQuestion || 30;
+          state.questionStartTime = Date.now();
+          if (state.currentRound?.type === 'countdown') {
+            let remaining = totalTime;
+            state.countdownRemaining = remaining;
+            state.questionTimer = setInterval(() => {
+              remaining -= 1;
+              state.countdownRemaining = remaining;
+              io.emit('game:countdown', { remaining, total: totalTime });
+              if (remaining <= 0 && state.questionTimer) {
+                clearInterval(state.questionTimer);
+                state.questionTimer = null;
+                state.answerRevealed = true;
+                emitState(io);
+              }
+            }, 1000);
+          } else if (state.currentRound?.type === 'fixed') {
+            state.questionTimer = setTimeout(() => {
+              state.questionTimer = null;
+              state.answerRevealed = true;
+              emitState(io);
+            }, (params.timePerQuestion || 30) * 1000);
+          }
+          // сразу отдать обновлённое состояние (questionStartTime), чтобы у игроков появилась кнопка «Ответить»
+          emitState(io);
+        }
+      }
     });
 
     socket.on('host:select-question', (data) => {
@@ -276,7 +298,7 @@ function initGameHandlers(io) {
       }
       if (!player) return;
       const playerId = player.id;
-      const canSelect = state.lastCorrectPlayerId == null || playerId === state.lastCorrectPlayerId;
+      const canSelect = state.lastCorrectPlayerId != null && playerId === state.lastCorrectPlayerId;
       if (!canSelect) return;
       selectQuestion(io, data);
     });
@@ -313,9 +335,11 @@ function initGameHandlers(io) {
       const params = state.currentRound?.params || {};
       let points = 0;
       if (state.currentRound?.type === 'countdown') {
-        const elapsed = (Date.now() - state.questionStartTime) / 1000;
         const total = params.totalTime || 30;
-        const remaining = Math.max(0, total - elapsed);
+        const remaining =
+          typeof state.countdownRemaining === 'number'
+            ? Math.max(0, state.countdownRemaining)
+            : Math.max(0, total - (Date.now() - state.questionStartTime) / 1000);
         const maxPoints = state.currentQuestion?.points || (params.pointsPerQuestion || 10);
         const baseMultiplier = params.multiplier || 1;
         const effectiveMultiplier = total > 0 ? (maxPoints * baseMultiplier) / total : baseMultiplier;
@@ -505,6 +529,8 @@ function initGameHandlers(io) {
       state.bonusPlayerAnswers = {};
       state.bonusEliminated = new Set();
       state.bonusQuestionPhase = null;
+      state.bonusAnswerTimeMs = {};
+      state.bonusQuestionStartTime = null;
       state.currentRound = null;
       state.roundData = null;
       state.currentQuestion = null;
@@ -572,10 +598,41 @@ function initGameHandlers(io) {
       state.bonusPlayerChoices[player.id] = choice;
 
       const alivePlayers = state.players.filter(
-        (p) => !state.bonusEliminated?.has(p.id)
+        (p) => p.socketId != null && !state.bonusEliminated?.has(p.id)
       );
       const allChosen = alivePlayers.every((p) => state.bonusPlayerChoices[p.id] === 'play' || state.bonusPlayerChoices[p.id] === 'pass');
       if (allChosen) {
+        const anyPlay = alivePlayers.some((p) => state.bonusPlayerChoices[p.id] === 'play');
+        // Если все спасовали — вопрос пропускается целиком, сразу переходим к следующему
+        if (!anyPlay) {
+          const aliveAfterPass = state.players.filter((p) => !state.bonusEliminated?.has(p.id));
+          if (state.bonusStage === 2 && aliveAfterPass.length <= 1) {
+            finishBonusGame(io);
+            return;
+          }
+
+          const currentStageQuestions =
+            state.bonusStage === 1 ? state.bonusQuestions.stage1Questions || [] : state.bonusQuestions.stage2Questions || [];
+          if (!currentStageQuestions.length) {
+            finishBonusGame(io);
+            return;
+          }
+
+          state.bonusQuestionIndex += 1;
+          if (state.bonusQuestionIndex >= currentStageQuestions.length) {
+            if (state.bonusStage === 1 && (state.bonusQuestions.stage2Questions || []).length > 0) {
+              state.bonusStage = 2;
+              state.bonusQuestionIndex = 0;
+            } else {
+              finishBonusGame(io);
+              return;
+            }
+          }
+
+          startBonusQuestion(io);
+          return;
+        }
+        state.bonusQuestionStartTime = Date.now();
         state.bonusQuestionPhase = 'question';
         emitState(io);
         // при открытии вопроса можно сразу начать проигрывание аудио, если есть
@@ -600,13 +657,19 @@ function initGameHandlers(io) {
       const selected = Array.isArray(options) ? options.slice() : [];
       state.bonusPlayerAnswers = state.bonusPlayerAnswers || {};
       const prev = state.bonusPlayerAnswers[player.id] || {};
+      // засчитываем время ответа только при первом зафиксированном ответе на этот вопрос
+      if (state.bonusQuestionStartTime != null && !Array.isArray(prev.options)) {
+        const dt = Math.max(0, Date.now() - state.bonusQuestionStartTime);
+        state.bonusAnswerTimeMs = state.bonusAnswerTimeMs || {};
+        state.bonusAnswerTimeMs[player.id] = (state.bonusAnswerTimeMs[player.id] || 0) + dt;
+      }
       state.bonusPlayerAnswers[player.id] = {
         ...prev,
         options: selected,
       };
 
       const playersWhoPlay = state.players.filter(
-        (p) => !state.bonusEliminated?.has(p.id) && state.bonusPlayerChoices?.[p.id] === 'play'
+        (p) => p.socketId != null && !state.bonusEliminated?.has(p.id) && state.bonusPlayerChoices?.[p.id] === 'play'
       );
       const allAnswered =
         playersWhoPlay.length === 0 ||
@@ -723,6 +786,10 @@ function endQuestion(io, correctPlayerId) {
     if (p) p.blocked = false;
   });
   state.blockedAtQuestionStart = [];
+  // Если в обычных раундах никто не угадал (correctPlayerId == null), снимаем блокировку со всех
+  if (!correctPlayerId && state.currentRound?.type !== 'auction') {
+    unblockAll();
+  }
   state.questionPausedAt = null;
   state.phase = 'round';
   state.currentQuestion = null;
@@ -751,6 +818,7 @@ function startBonusQuestion(io) {
   state.bonusQuestionPhase = 'choices';
   state.bonusPlayerChoices = {};
   state.bonusPlayerAnswers = {};
+  state.bonusQuestionStartTime = null;
 
   io.emit('game:bonus-question-started', {
     stage: state.bonusStage,
@@ -809,6 +877,7 @@ function finishBonusQuestion(io) {
   }
 
   state.bonusQuestionPhase = 'reveal';
+  state.bonusQuestionStartTime = null;
   io.emit('game:stop-audio');
   io.emit('game:bonus-question-finished', {
     stage: state.bonusStage,

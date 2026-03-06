@@ -2,10 +2,13 @@
   "id": "6_pereskaz-q-800",
   "points": 800,
   "questionBlocks": [
-    { "type": "audio", "file": "4q.wav" }
+    { "type": "audio", "file": "4q.wav" },
+    { "type": "text", "content": "Назовите исполнителя или песню" }
   ],
   "answerBlocks": [
     { "type": "text", "content": "Lady Gaga - Bad Romance" },
+    { "type": "text", "content": "Интересный факт:" },
+    { "type": "text", "content": "- Песня - метафора индустрии шоу-бизнеса и контроля над артистами." },
     { "type": "image", "file": "a4p.jpg" },
     { "type": "audio", "file": "4a.wav" }
   ]

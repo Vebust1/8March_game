@@ -187,7 +187,13 @@
     }
 
     if (state?.phase === 'ended') {
-      const sorted = (state.players || []).sort((a, b) => b.score - a.score);
+      const bonus = state?.bonus;
+      const bonusTimes = bonus?.timesMs || {};
+      const getTimeMs = (p) => bonusTimes[p.id] || 0;
+      const sorted = (state.players || []).sort((a, b) => {
+        if (b.score !== a.score) return b.score - a.score;
+        return getTimeMs(a) - getTimeMs(b);
+      });
       const maxScore = sorted[0]?.score ?? 0;
       const winners = sorted.filter((p) => p.score === maxScore && maxScore > 0);
       const winnerNames = winners.length ? winners.map((p) => escapeHtml(p.name)).join(', ') : 'Нет победителя';
@@ -204,12 +210,14 @@
         <div class="finale-view">
           <h2>${bonus?.finished ? 'Итоги бонусной игры' : 'Итоговая таблица'}</h2>
           <table class="finale-results-table">
-            <thead><tr><th>Место</th><th>Имя</th><th>Очки</th></tr></thead>
+            <thead><tr><th>Место</th><th>Имя</th><th>Очки</th>${bonus?.finished ? '<th>Время, с</th>' : ''}</tr></thead>
             <tbody>
               ${sorted
                 .map(
                   (p, i) =>
-                    `<tr class="${placeClass(i)}"><td>${placeLabel(i)}</td><td>${escapeHtml(p.name)}</td><td>${p.score}</td></tr>`
+                    `<tr class="${placeClass(i)}"><td>${placeLabel(i)}</td><td>${escapeHtml(p.name)}</td><td>${p.score}</td>${
+                      bonus?.finished ? `<td>${(getTimeMs(p) / 1000).toFixed(2)}</td>` : ''
+                    }</tr>`
                 )
                 .join('')}
             </tbody>

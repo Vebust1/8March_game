@@ -3,7 +3,7 @@
   "points": 400,
   "questionBlocks": [
     { "type": "text", "content": "Назовите исполнительницу" },
-    { "type": "audio", "file": "q.wav" }
+    { "type": "audio", "file": "q.mp3" }
   ],
   "answerBlocks": [
     { "type": "text", "content": "Avril Lavigne - Complicated" },

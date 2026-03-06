@@ -3,10 +3,11 @@
   "points": 1500,
   "questionBlocks": [
     { "type": "audio", "file": "q5.wav" },
-    { "type": "text", "content": "Эта величественная и грустная песня к самому кассовомуфильму о британском шпионе принесла певице «Оскар»." }
+    { "type": "text", "content": "Эта величественная и грустная песня к самому кассовому фильму о британском шпионе принесла певице «Оскар»." }
   ],
   "answerBlocks": [
     { "type": "text", "content": "Adele - Skyfall" },
-    { "type": "image", "file": "a5p.jpg" }
+    { "type": "image", "file": "a5p.jpg" },
+    { "type": "audio", "file": "a5.wav" }
   ]
 }

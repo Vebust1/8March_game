@@ -2,20 +2,20 @@
   "id": "bonus-012",
   "order": 12,
   "hintBlocks": [
-    { "type": "text", "content": "Классика!" }
+    { "type": "text", "content": "Ретро - фишинг" }
   ],
   "questionBlocks": [
-    { "type": "text", "content": "Композитор?" },
-    { "type": "audio", "file": "12_Бах.mp3" }
+    { "type": "text", "content": "А кто поет?" },
+    { "type": "audio", "file": "12_Rick_astley.mp3" }
   ],
   "answerBlocks": [
-    { "type": "text", "content": "Бах" }
+    { "type": "text", "content": "Rick Astley" }
   ],
   "options": [
-    { "id": "a", "text": "Бетховен", "correct": false },
-    { "id": "b", "text": "Моцарт", "correct": false },
-    { "id": "c", "text": "Бах", "correct": true },
-    { "id": "d", "text": "Вивальди", "correct": false }
+    { "id": "a", "text": "Rick Astley", "correct": true },
+    { "id": "b", "text": "A-ha", "correct": false },
+    { "id": "c", "text": "Tears For Fears", "correct": false },
+    { "id": "d", "text": "Wham!", "correct": false }
   ],
   "allowMultiple": false
 }

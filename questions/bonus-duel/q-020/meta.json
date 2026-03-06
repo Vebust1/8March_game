@@ -5,7 +5,7 @@
     { "type": "text", "content": "Тяжёлый кинематографичный индастриал 2025-го." }
   ],
   "questionBlocks": [
-    { "type": "text", "content": "Группа" },
+    { "type": "text", "content": "Назовите группу" },
     { "type": "audio", "file": "20_Falling_in_reverse.mp3" }
   ],
   "answerBlocks": [

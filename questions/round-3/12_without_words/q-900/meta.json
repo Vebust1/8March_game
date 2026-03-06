@@ -7,6 +7,7 @@
   ],
   "answerBlocks": [
     { "type": "text", "content": "Beatles - Yesterday" },
-    { "type": "image", "file": "a3p.jpg" }
+    { "type": "image", "file": "a3p.jpg" },
+    { "type": "audio", "file": "a3.wav" }
   ]
 }

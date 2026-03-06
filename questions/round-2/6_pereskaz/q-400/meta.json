@@ -2,10 +2,13 @@
   "id": "6_pereskaz-q-400",
   "points": 400,
   "questionBlocks": [
-    { "type": "audio", "file": "2q.wav" }
+    { "type": "audio", "file": "2q.wav" },
+    { "type": "text", "content": "Назовите исполнителя или песню" }
   ],
   "answerBlocks": [
     { "type": "text", "content": "Rihanna - Umbrella" },
+    { "type": "text", "content": "Интересный факт:" },
+    { "type": "text", "content": "- Пока песня была №1 в чартах, в Великобритании шёл самый дождливый период за десятилетия. СМИ шутили, что исполнитель буквально «вызвал дождь»" },
     { "type": "image", "file": "a2p.jpg" },
     { "type": "audio", "file": "2a.wav" }
   ]

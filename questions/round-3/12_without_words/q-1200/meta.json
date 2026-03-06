@@ -7,6 +7,7 @@
   ],
   "answerBlocks": [
     { "type": "text", "content": "Bee Gees - Stayin alive" },
-    { "type": "image", "file": "a4p.jpg" }
+    { "type": "image", "file": "a4p.jpg" },
+    { "type": "audio", "file": "a4.wav" }
   ]
 }

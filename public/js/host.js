@@ -74,6 +74,19 @@
       const p = getQuestionProgress();
       fill.style.width = `${Math.round(p * 100)}%`;
     }
+    // Обновляем отображение очков в countdown-раунде для ведущего
+    if (state?.currentRound?.type === 'countdown' && state?.currentQuestion) {
+      const q = state.currentQuestion;
+      const roundParams = state?.currentRound?.params || {};
+      const baseTotal = countdownTotal ?? state?.questionTotalTime ?? roundParams.totalTime ?? 30;
+      const maxPoints = q.points || roundParams.pointsPerQuestion || 10;
+      const baseMultiplier = roundParams.multiplier || 1;
+      const effectiveMultiplier = baseTotal > 0 ? (maxPoints * baseMultiplier) / baseTotal : baseMultiplier;
+      const remaining = typeof countdownRemaining === 'number' ? countdownRemaining : baseTotal;
+      const countdownPoints = Math.max(0, Math.round(remaining * effectiveMultiplier));
+      const ptsEl = document.getElementById('host-countdown-points');
+      if (ptsEl) ptsEl.textContent = `${countdownPoints} очков`;
+    }
   }
 
   function startProgressInterval() {
@@ -125,6 +138,31 @@
     const countdownPoints =
       isCountdown && countdownRemaining != null ? Math.max(0, Math.round(countdownRemaining * effectiveMultiplier)) : q.points;
 
+    const catTitle =
+      state?.roundData?.categories?.find((c) => c.id === q.categoryId)?.title || 'Категория';
+    const answeringPlayer =
+      state?.buzzedPlayerId && (state.players || []).find((x) => x.id === state.buzzedPlayerId);
+    const answeringLabel = answeringPlayer
+      ? `<div class="modal-answering-player">Отвечает: ${escapeHtml(answeringPlayer.name)}</div>`
+      : '';
+
+    let audioButtonsHtml = '';
+    // В раунде с торгом управление прослушиванием идёт через спец-кнопки, общие «Слушаем» здесь не нужны
+    if (state?.currentRound?.type !== 'auction') {
+      // URL мелодии вопроса определяем напрямую из текущего вопроса,
+      // чтобы он был доступен и после раскрытия ответа
+      const firstAudio = (q.questionBlocks || []).find((b) => b.type === 'audio');
+      const questionAudioUrl = firstAudio && q.basePath ? `/${q.basePath}/${encodeURIComponent(firstAudio.file)}` : null;
+      const answerAudioUrl = state?.answerAudioUrl;
+      if (!answerRevealed && questionAudioUrl) {
+        audioButtonsHtml += '<button class="btn-play-audio-question modal-host-btn">Слушаем</button>';
+      }
+      // Кнопка «Слушаем ответ» есть, даже если отдельного файла ответа нет — тогда переигрываем вопрос
+      if (answerRevealed && (answerAudioUrl || questionAudioUrl)) {
+        audioButtonsHtml += '<button class="btn-play-audio-answer modal-host-btn">Слушаем ответ</button>';
+      }
+    }
+
     if (answerRevealed) {
       hostButtonsHtml = '<button class="btn-next-question modal-host-btn">Следующий вопрос</button>';
     } else if (state?.buzzedPlayerId) {
@@ -144,10 +182,12 @@
     }
 
     modal.innerHTML = `
-      <div class="modal-question">
+      <div class="modal-question modal-question-host">
         <div class="modal-question-content">
-          ${questionContentHtml}
+          <div class="modal-question-category">${escapeHtml(catTitle)}</div>
           <div class="modal-question-points" id="host-countdown-points">${countdownPoints} очков</div>
+          ${answeringLabel}
+          ${questionContentHtml}
           <div class="modal-progress-wrap">
             <div class="modal-progress-bar">
               <div class="modal-progress-fill" id="host-progress-fill" style="width: ${Math.round(progress * 100)}%"></div>
@@ -158,7 +198,7 @@
           ${answerBlockHtml}
           ${auctionSelectHint}
           ${auctionDurationHtml}
-          <div class="modal-host-buttons">${hostButtonsHtml}</div>
+          <div class="modal-host-buttons">${hostButtonsHtml}${audioButtonsHtml}</div>
         </div>
       </div>
     `;
@@ -243,6 +283,9 @@
       const questionContentHtml = getQuestionContentHtml(q);
       const options = q.options || [];
       let optionsHtml = '';
+      const bonusTimes = bonus.timesMs || {};
+      const getTimeMs = (p) => bonusTimes[p.id] || 0;
+      const eliminatedSet = new Set(bonus.eliminatedPlayerIds || []);
       if (options.length) {
         optionsHtml =
           '<div class="bonus-options bonus-options-reveal">' +
@@ -273,7 +316,11 @@
               status = 'не дал ответ';
             }
           }
-          return `<li><span class="bonus-player-name">${escapeHtml(p.name)}</span> — <span class="bonus-player-status">${status}</span> (<span class="bonus-player-score">${p.score}</span>)</li>`;
+          if (eliminatedSet.has(p.id)) {
+            status += ' — выбыл';
+          }
+          const totalSec = (getTimeMs(p) / 1000).toFixed(2);
+          return `<li><span class="bonus-player-name">${escapeHtml(p.name)}</span> — <span class="bonus-player-status">${status}</span> (<span class="bonus-player-score">${p.score}</span>, <span class="bonus-player-time">${totalSec} с</span>)</li>`;
         })
         .join('');
       contentHtml = `
@@ -322,6 +369,31 @@
 
   function bindModalEvents(modal) {
     if (!modal) return;
+    const btnPlayQuestion = modal.querySelector('.btn-play-audio-question');
+    if (btnPlayQuestion) {
+      btnPlayQuestion.addEventListener('click', () => {
+        // тот же URL, что и в renderHostQuestionModal (для не-аукционных раундов)
+        const q = state?.currentQuestion;
+        const firstAudio = (q?.questionBlocks || []).find((b) => b.type === 'audio');
+        const questionAudioUrl = firstAudio && q?.basePath ? `/${q.basePath}/${encodeURIComponent(firstAudio.file)}` : null;
+        if (!questionAudioUrl || state?.currentRound?.type === 'auction') return;
+        if (window.unlockAudio) window.unlockAudio();
+        socket.emit('host:play-audio', { url: questionAudioUrl });
+      });
+    }
+    const btnPlayAnswer = modal.querySelector('.btn-play-audio-answer');
+    if (btnPlayAnswer) {
+      btnPlayAnswer.addEventListener('click', () => {
+        const q = state?.currentQuestion;
+        const firstAudio = (q?.questionBlocks || []).find((b) => b.type === 'audio');
+        const questionAudioUrl = firstAudio && q?.basePath ? `/${q.basePath}/${encodeURIComponent(firstAudio.file)}` : null;
+        const url = state?.answerAudioUrl || questionAudioUrl;
+        if (state?.currentRound?.type === 'auction') return;
+        if (!url) return;
+        if (window.unlockAudio) window.unlockAudio();
+        socket.emit('host:play-audio', { url });
+      });
+    }
     modal.querySelectorAll('.btn-auction-select').forEach((btn) => {
       btn.addEventListener('click', () => {
         if (window.unlockAudio) window.unlockAudio();
@@ -542,7 +614,13 @@
       const bModal = document.getElementById('host-bonus-modal');
       if (bModal && bModal.parentNode) bModal.parentNode.removeChild(bModal);
 
-      const sorted = (state.players || []).sort((a, b) => b.score - a.score);
+      const bonus = state?.bonus;
+      const bonusTimes = bonus?.timesMs || {};
+      const getTimeMs = (p) => bonusTimes[p.id] || 0;
+      const sorted = (state.players || []).sort((a, b) => {
+        if (a.score !== b.score) return a.score - b.score;
+        return getTimeMs(b) - getTimeMs(a);
+      });
       const maxScore = sorted[0]?.score ?? 0;
       const winners = sorted.filter((p) => p.score === maxScore && maxScore > 0);
       const winnerNames = winners.length ? winners.map((p) => escapeHtml(p.name)).join(', ') : 'Нет победителя';
@@ -563,8 +641,12 @@
           <ul class="finale-list">
             ${sorted
               .map(
-                (p, i) =>
-                  `<li class="${winners.some((w) => w.id === p.id) ? 'finale-winner' : ''}"><span>${escapeHtml(p.name)}</span><span>${p.score}</span></li>`
+                (p, i) => {
+                  const totalSec = (getTimeMs(p) / 1000).toFixed(2);
+                  return `<li class="${winners.some((w) => w.id === p.id) ? 'finale-winner' : ''}"><span>${escapeHtml(
+                    p.name
+                  )}</span><span>${p.score} очков · ${totalSec} с</span></li>`;
+                }
               )
               .join('')}
           </ul>
@@ -606,11 +688,15 @@
     const rnd = view.querySelector('.random-btn');
     if (rnd) {
       rnd.addEventListener('click', () => {
+        if (rnd.disabled) return;
         if (window.unlockAudio) window.unlockAudio();
         if (window.playSfx) window.playSfx('select');
         socket.emit('host:select-question', { random: true });
       });
-      rnd.disabled = state?.phase !== 'round' || !!state?.currentQuestion;
+      const qList = Object.values(state?.roundData?.questionsMap || {});
+      const answered = state?.answeredIds || [];
+      const hasAvailable = qList.some((q) => q && !answered.includes(q.id));
+      rnd.disabled = state?.phase !== 'round' || !!state?.currentQuestion || !hasAvailable;
     }
 
     view.querySelectorAll('.question-cell:not(.played)').forEach((el) => {

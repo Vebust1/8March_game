@@ -2,7 +2,8 @@
   "id": "2_cavers-q-500",
   "points": 500,
   "questionBlocks": [
-    { "type": "audio", "file": "q5.wav" }
+    { "type": "audio", "file": "q5.wav" },
+    { "type": "text", "content": "Назовите оригинального исполнителя" }
   ],
   "answerBlocks": [
     { "type": "text", "content": "Kate Bush" },

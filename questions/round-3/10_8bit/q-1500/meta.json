@@ -7,6 +7,7 @@
   ],
   "answerBlocks": [
     { "type": "text", "content": "Skrillex - Make It Bun Dem" },
-    { "type": "image", "file": "a5p.jpg" }
+    { "type": "image", "file": "a5p.jpg" },
+    { "type": "audio", "file": "q5.wav" }
   ]
 }

@@ -2,7 +2,8 @@
   "id": "2_cavers-q-100",
   "points": 100,
   "questionBlocks": [
-    { "type": "audio", "file": "q1.wav" }
+    { "type": "audio", "file": "q1.wav" },
+    { "type": "text", "content": "Назовите оригинального исполнителя" }
   ],
   "answerBlocks": [
     { "type": "text", "content": "Hi-Fi" },

@@ -2,7 +2,8 @@
   "id": "2_cavers-q-300",
   "points": 300,
   "questionBlocks": [
-    { "type": "audio", "file": "q3.wav" }
+    { "type": "audio", "file": "q3.wav" },
+    { "type": "text", "content": "Назовите оригинального исполнителя" }
   ],
   "answerBlocks": [
     { "type": "text", "content": "Nirvana, Курт Кобейн" },

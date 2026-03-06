@@ -5,7 +5,7 @@
     { "type": "text", "content": "Старенькая альтернатива" }
   ],
   "questionBlocks": [
-    { "type": "text", "content": "А кто поет?" },
+    { "type": "text", "content": "А кто поет оригинал?" },
     { "type": "audio", "file": "15_Korn.mp3" }
   ],
   "answerBlocks": [

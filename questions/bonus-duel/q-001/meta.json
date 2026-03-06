@@ -2,14 +2,14 @@
   "id": "bonus-001",
   "order": 1,
   "hintBlocks": [
-    { "type": "text", "content": "Hands Up!" }
+    { "type": "text", "content": "Hands Up, baby, hands up!" }
   ],
   "questionBlocks": [
     { "type": "text", "content": "Назовите песню" },
     { "type": "audio", "file": "01_Крошка_моя.mp3" }
   ],
   "answerBlocks": [
-    { "type": "text", "content": "Крошка моя" }
+    { "type": "text", "content": "Руки вверх - 'Крошка моя'" }
   ],
   "options": [
     { "id": "a", "text": "Крошка моя", "correct": true },

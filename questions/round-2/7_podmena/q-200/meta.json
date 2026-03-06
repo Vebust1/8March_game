@@ -2,10 +2,14 @@
   "id": "7_podmena-q-200",
   "points": 200,
   "questionBlocks": [
-    { "type": "audio", "file": "q1.wav" }
+    { "type": "audio", "file": "q1.wav" },
+    { "type": "text", "content": "Назовите исполнителя или песню" }
   ],
   "answerBlocks": [
     { "type": "text", "content": "Mary Gu - Косички отрезала прическа отстой" },
+    { "type": "text", "content": "Интересные факты:" },
+    { "type": "text", "content": "- Эта песня стала вирусным саундтреком к видео о расставаниях в TikTok." },
+    { "type": "text", "content": "- Главная строчка песни превратилась в интернет-мем." },
     { "type": "image", "file": "a1p.jpg" },
     { "type": "audio", "file": "a1.wav" }
   ]

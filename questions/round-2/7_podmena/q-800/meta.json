@@ -2,10 +2,13 @@
   "id": "7_podmena-q-800",
   "points": 800,
   "questionBlocks": [
-    { "type": "audio", "file": "q4.wav" }
+    { "type": "audio", "file": "q4.wav" },
+    { "type": "text", "content": "Назовите исполнителя или песню" }
   ],
   "answerBlocks": [
     { "type": "text", "content": "Пицца - Оружие" },
+    { "type": "text", "content": "Интересный факт:" },
+    { "type": "text", "content": "- Интересный момент: группа получила своё название потому, что участники хотели, чтобы музыка была «как смесь разных ингредиентов», то есть разных музыкальных стилей." },
     { "type": "image", "file": "a4p.jpg" },
     { "type": "audio", "file": "a4.wav" }
   ]

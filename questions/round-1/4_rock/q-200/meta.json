@@ -7,6 +7,6 @@
   ],
   "answerBlocks": [
     { "type": "text", "content": "Evanescence - Bring me to life" },
-    { "type": "image", "file": "a.jpg" }
+    { "type": "image", "file": "a.jpeg" }
   ]
 }

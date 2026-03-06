@@ -126,6 +126,21 @@ body::before {
   margin: 0 auto;
 }
 
+/* Отдельная раскладка для бонусной дуэли — QR по центру табло */
+.bonus-layout {
+  justify-content: center;
+}
+
+.bonus-board {
+  margin-top: 0.5rem;
+}
+
+.bonus-layout .game-board-inner {
+  justify-content: center;
+  align-items: center;
+  min-height: 360px;
+}
+
 .game-board {
   position: relative;
   background: var(--gradient-jukebox);
@@ -169,11 +184,11 @@ body::before {
   width: 180px;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem; /* совпадает с расстоянием между строками вопросов */
 }
 
 .category-btn {
-  min-height: 60px;
+  min-height: 72px; /* высота как у ячейки вопроса, чтобы центр совпадал по вертикали */
   background: linear-gradient(180deg, var(--color-purple-light) 0%, var(--color-purple) 50%, #4a1942 100%);
   border: 2px solid var(--color-gold);
   border-radius: 12px;
@@ -464,7 +479,7 @@ body::before {
 .player-score-input {
   width: 72px;
   padding: 0.15rem 0.35rem;
-  font-size: 1.5rem;
+  font-size: 1.05rem;
   font-weight: 800;
   text-align: center;
   border-radius: 10px;
@@ -520,7 +535,7 @@ body::before {
 }
 
 .player-score {
-  font-size: 2rem;
+  font-size: 1.3rem;
   font-weight: 900;
   color: var(--color-gold);
   text-shadow: 0 0 15px rgba(255,215,0,0.6);
@@ -703,6 +718,11 @@ body::before {
   animation: modalGlow 2.5s ease-in-out infinite;
 }
 
+.modal-question-host {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
 @keyframes modalGlow {
   0%, 100% {
     box-shadow:
@@ -722,6 +742,20 @@ body::before {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.modal-question-category {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+.modal-answering-player {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-blue-light);
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .modal-question-text {
@@ -1247,4 +1281,85 @@ body::before {
   border: 2px solid var(--color-gold);
   border-radius: 14px;
   margin-top: 0.5rem;
+}
+
+/* Бонусная дуэль — блок с QR-кодом игрока */
+.bonus-qr-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 1.6rem 2.4rem;
+  max-width: 520px;
+  background: radial-gradient(circle at 20% 0%, rgba(255, 215, 0, 0.28), transparent 55%),
+    radial-gradient(circle at 80% 100%, rgba(236, 72, 153, 0.35), transparent 55%),
+    linear-gradient(180deg, #4a1942 0%, #2d1b2e 55%, #130913 100%);
+  border-radius: 24px;
+  border: 4px solid var(--color-gold);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.65), 0 0 40px rgba(255, 215, 0, 0.45);
+}
+
+.bonus-qr-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  text-shadow: 0 0 16px rgba(255, 215, 0, 0.8);
+}
+
+.bonus-qr-subtitle {
+  max-width: 420px;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.bonus-qr-box {
+  position: relative;
+  margin-top: 0.75rem;
+  width: 280px;
+  height: 280px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.15), transparent 55%),
+    radial-gradient(circle at 50% 100%, rgba(0, 0, 0, 0.65), transparent 60%),
+    linear-gradient(180deg, #1f2937 0%, #020617 100%);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7), 0 0 55px rgba(255, 215, 0, 0.45);
+  padding: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bonusQrGlow 3s ease-in-out infinite;
+}
+
+/* Собственно QR из библиотеки — делаем «табличкой» на подиуме */
+#host-bonus-qr canvas,
+#host-bonus-qr img {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.65);
+}
+
+.bonus-qr-link {
+  margin-top: 0.5rem;
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  word-break: break-all;
+  max-width: 100%;
+}
+
+@keyframes bonusQrGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 26px rgba(0, 0, 0, 0.85), 0 0 40px rgba(255, 215, 0, 0.45);
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.9), 0 0 70px rgba(255, 215, 0, 0.85);
+    transform: translateY(-2px);
+  }
 }

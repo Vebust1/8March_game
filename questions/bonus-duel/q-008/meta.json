@@ -2,20 +2,20 @@
   "id": "bonus-008",
   "order": 8,
   "hintBlocks": [
-    { "type": "text", "content": "Прозрачная слеза русского веселья" }
+    { "type": "text", "content": "Если спросят меня где взяла ... ?" }
   ],
   "questionBlocks": [
-    { "type": "text", "content": "Назовите автора песни" },
-    { "type": "audio", "file": "08_Евгений_Григорьев.mp3" }
+    { "type": "text", "content": "Назовите группу, исполняющую кавер" },
+    { "type": "audio", "file": "08_Заточка.mp3" }
   ],
   "answerBlocks": [
-    { "type": "text", "content": "Евгений Григорьев" }
+    { "type": "text", "content": "Заточка" }
   ],
   "options": [
-    { "id": "a", "text": "Григорий Лепс", "correct": false },
-    { "id": "b", "text": "Евгений Григорьев", "correct": true },
-    { "id": "c", "text": "Стас Михайлов", "correct": false },
-    { "id": "d", "text": "Сергей Наговицын", "correct": false }
+    { "id": "a", "text": "Шпилька", "correct": false },
+    { "id": "b", "text": "Заточка", "correct": true },
+    { "id": "c", "text": "Фомка", "correct": false },
+    { "id": "d", "text": "Отмычка", "correct": false }
   ],
   "allowMultiple": false
 }

@@ -2,10 +2,13 @@
   "id": "6_pereskaz-q-1000",
   "points": 1000,
   "questionBlocks": [
-    { "type": "audio", "file": "5q.wav" }
+    { "type": "audio", "file": "5q.wav" },
+    { "type": "text", "content": "Назовите исполнителя или песню" }
   ],
   "answerBlocks": [
     { "type": "text", "content": "КИШ - Кукла колдуна" },
+    { "type": "text", "content": "Интересный факт:" },
+    { "type": "text", "content": "- Днная песня является одной из главных для коллектива. Но официального клипа на песню долго не существовало — поклонники делали сотни фанатских видео и анимаций." },
     { "type": "image", "file": "a5p.jpg" },
     { "type": "audio", "file": "5a.wav" }
   ]

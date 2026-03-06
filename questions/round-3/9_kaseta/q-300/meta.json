@@ -3,7 +3,8 @@
   "points": 300,
   "questionBlocks": [
     { "type": "audio", "file": "q1.wav" },
-    { "type": "text", "content": "Песня про чувство, которое похоже на опасный яд. Один из главных поп-хитов и исполнителя начала 2000-х." }
+    { "type": "text", "content": "Песня о чувстве, которое сравнивают с опасным ядом. Один из главных поп-хитов начала 2000-х." },
+    { "type": "text", "content": "Назовите исполнителя и песню" }
   ],
   "answerBlocks": [
     { "type": "text", "content": "Britney Spears - Toxic" },

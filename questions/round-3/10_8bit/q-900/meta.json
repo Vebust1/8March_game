@@ -7,6 +7,7 @@
   ],
   "answerBlocks": [
     { "type": "text", "content": "Stevie Wonder - I Just Called to Say I Love You" },
-    { "type": "image", "file": "a3p.jpg" }
+    { "type": "image", "file": "a3p.jpg" },
+    { "type": "audio", "file": "q3.wav" }
   ]
 }

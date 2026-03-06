@@ -35,6 +35,8 @@
     if (!state.currentQuestion) return false;
     const roundType = state.currentRound?.type;
     if (!ROUND_TYPES_WITH_BUZZ.includes(roundType)) return false;
+    // для вопросов с музыкой ждём, пока ведущий нажмёт «Слушаем» (начинается таймер)
+    if (state.questionAudioUrl && !state.questionStartTime) return false;
     const me = state.players?.find((p) => p.id === myPlayerId);
     if (!me || me.blocked) return false;
     if (state.buzzedPlayerId) return false;
@@ -42,12 +44,25 @@
   }
 
   function canSelectQuestion() {
-    if (!state || state?.phase !== 'round' || state?.currentQuestion || state?.buzzedPlayerId || !state?.roundData?.categories?.length || state?.roundData?.blitz) {
+    if (
+      !state ||
+      state?.phase !== 'round' ||
+      state?.currentQuestion ||
+      state?.buzzedPlayerId ||
+      !state?.roundData?.categories?.length ||
+      state?.roundData?.blitz
+    ) {
       return false;
     }
+    // если вопросов больше нет — выбирать нечего
+    const qList = Object.values(state.roundData.questionsMap || {});
+    const answered = state.answeredIds || [];
+    const hasAvailable = qList.some((q) => q && !answered.includes(q.id));
+    if (!hasAvailable) return false;
+
+    // выбирать может только игрок, у которого ход (последний правильно ответивший)
     const isMyTurn = state.lastCorrectPlayerId === myPlayerId;
-    const isFirstQuestion = state.lastCorrectPlayerId == null;
-    return isMyTurn || isFirstQuestion;
+    return isMyTurn;
   }
 
   function getQuestionText(q) {
@@ -170,11 +185,15 @@
       buzzInModal = '<p class="modal-buzz-wait">Ожидайте своего хода</p>';
     }
 
+    const catTitle =
+      state?.roundData?.categories?.find((c) => c.id === q.categoryId)?.title || 'Категория';
+
     modal.innerHTML = `
       <div class="modal-question">
         <div class="modal-question-content">
-          ${questionContentHtml}
+          <div class="modal-question-category">${escapeHtml(catTitle)}</div>
           <div class="modal-question-points" id="player-countdown-points">${countdownPoints} очков</div>
+          ${questionContentHtml}
           <div class="modal-progress-wrap">
             <div class="modal-progress-bar">
               <div class="modal-progress-fill" id="player-progress-fill" style="width: ${Math.round(progress * 100)}%"></div>
@@ -455,7 +474,12 @@
       if (bModal && bModal.parentNode) bModal.parentNode.removeChild(bModal);
 
       const isBonusFinale = bonus?.finished;
-      const sorted = (state.players || []).sort((a, b) => b.score - a.score);
+      const bonusTimes = bonus?.timesMs || {};
+      const getTimeMs = (p) => bonusTimes[p.id] || 0;
+      const sorted = (state.players || []).sort((a, b) => {
+        if (a.score !== b.score) return a.score - b.score;
+        return getTimeMs(b) - getTimeMs(a);
+      });
       const maxScore = sorted[0]?.score ?? 0;
       const winners = sorted.filter((p) => p.score === maxScore && maxScore > 0);
       const winnerNames = winners.length ? winners.map((p) => escapeHtml(p.name)).join(', ') : 'Нет победителя';
@@ -472,12 +496,14 @@
         <div class="finale-view">
           <h2>${isBonusFinale ? 'Итоги бонусной игры' : 'Итоговая таблица'}</h2>
           <table class="finale-results-table">
-            <thead><tr><th>Место</th><th>Имя</th><th>Очки</th></tr></thead>
+            <thead><tr><th>Место</th><th>Имя</th><th>Очки</th>${isBonusFinale ? '<th>Время, с</th>' : ''}</tr></thead>
             <tbody>
               ${sorted
                 .map(
                   (p, i) =>
-                    `<tr class="${placeClass(i)}"><td>${placeLabel(i)}</td><td>${escapeHtml(p.name)}${p.id === myPlayerId ? ' (вы)' : ''}</td><td>${p.score}</td></tr>`
+                    `<tr class="${placeClass(i)}"><td>${placeLabel(i)}</td><td>${escapeHtml(p.name)}${p.id === myPlayerId ? ' (вы)' : ''}</td><td>${p.score}</td>${
+                      isBonusFinale ? `<td>${(getTimeMs(p) / 1000).toFixed(2)}</td>` : ''
+                    }</tr>`
                 )
                 .join('')}
             </tbody>

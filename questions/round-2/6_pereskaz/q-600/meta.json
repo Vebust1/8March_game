@@ -2,10 +2,13 @@
   "id": "6_pereskaz-q-600",
   "points": 600,
   "questionBlocks": [
-    { "type": "audio", "file": "3q.wav" }
+    { "type": "audio", "file": "3q.wav" },
+    { "type": "text", "content": "Назовите исполнителя или песню" }
   ],
   "answerBlocks": [
     { "type": "text", "content": "Звери - Районы-кварталы" },
+    { "type": "text", "content": "Интересный факт:" },
+    { "type": "text", "content": "- Клип на песню снимался буквально за один день и без сложных постановок — в духе уличной прогулки, чтобы сохранить ту самую атмосферу песни" },
     { "type": "image", "file": "a3p.jpg" },
     { "type": "audio", "file": "3a.wav" }
   ]

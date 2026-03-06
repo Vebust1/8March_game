@@ -2,7 +2,7 @@
   "id": "bonus-002",
   "order": 2,
   "hintBlocks": [
-    { "type": "text", "content": "Геометрическая фигура" }
+    { "type": "text", "content": "Геометрический шансон" }
   ],
   "questionBlocks": [
     { "type": "text", "content": "Испольнитель?" },
@@ -12,10 +12,10 @@
     { "type": "text", "content": "Михаил Круг" }
   ],
   "options": [
-    { "id": "a", "text": "Круг", "correct": true },
-    { "id": "b", "text": "Квадрат", "correct": false },
-    { "id": "c", "text": "Треугольник", "correct": false },
-    { "id": "d", "text": "Параллелограм", "correct": false }
+    { "id": "a", "text": "Михаил Круг", "correct": true },
+    { "id": "b", "text": "Юрий Квадрат", "correct": false },
+    { "id": "c", "text": "Антон Треугольник", "correct": false },
+    { "id": "d", "text": "Александр Параллелограм", "correct": false }
   ],
   "allowMultiple": false
 }

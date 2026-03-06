@@ -2,7 +2,8 @@
   "id": "2_cavers-q-200",
   "points": 200,
   "questionBlocks": [
-    { "type": "audio", "file": "q2.wav" }
+    { "type": "audio", "file": "q2.wav" },
+    { "type": "text", "content": "Назовите оригинального исполнителя" }
   ],
   "answerBlocks": [
     { "type": "text", "content": "Кино, Виктор Цой" },

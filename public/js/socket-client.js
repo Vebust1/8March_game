@@ -136,52 +136,8 @@
     if (!inBonus && (state?.buzzedPlayerId || state?.questionPausedAt)) {
       return;
     }
-    // бонус: остановить аудио при смене вопроса, фазе reveal/choices или окончании бонуса
-    if (state?.phase === 'ended' && state?.bonus?.finished) {
-      lastBonusAudioUrl = null;
-      window.audioPlayer.pause();
-      window.audioPlayer.src = '';
-    } else if (inBonus) {
-      if (state?.bonus?.questionPhase !== 'question' || !state?.bonus?.audioUrl) {
-        lastBonusAudioUrl = null;
-        window.audioPlayer.pause();
-        window.audioPlayer.src = '';
-      } else if (state.bonus.audioUrl && state.bonus.audioUrl !== lastBonusAudioUrl && !pausedByBuzz) {
-        lastBonusAudioUrl = state.bonus.audioUrl;
-        window.audioPlayer.volume = 1;
-        window.audioPlayer.muted = false;
-        window.audioPlayer.src = state.bonus.audioUrl;
-        window.audioPlayer.play().catch(() => {});
-      }
-    } else {
-      lastBonusAudioUrl = null;
-    }
-    if (state?.answerRevealed) {
-      if (state?.answerAudioUrl && answerAudioPlayedForQuestionId !== state.currentQuestion?.id) {
-        pauseAllMedia();
-        currentQuestionId = null;
-        answerAudioPlayedForQuestionId = state.currentQuestion?.id;
-        window.audioPlayer.volume = 1;
-        window.audioPlayer.muted = false;
-        window.audioPlayer.src = state.answerAudioUrl;
-        window.audioPlayer.play().catch(() => {});
-      } else if (!state?.answerAudioUrl) {
-        window.audioPlayer.volume = 1;
-        window.audioPlayer.muted = false;
-        if (window.audioPlayer.src) {
-          window.audioPlayer.play().catch(() => {});
-        }
-      }
-    } else if (state?.questionAudioUrl && state?.currentQuestion && !pausedByBuzz) {
-      if (currentQuestionId !== state.currentQuestion.id) {
-        currentQuestionId = state.currentQuestion.id;
-        answerAudioPlayedForQuestionId = null;
-        window.audioPlayer.volume = 1;
-        window.audioPlayer.muted = false;
-        window.audioPlayer.src = state.questionAudioUrl;
-        window.audioPlayer.play().catch(() => {});
-      }
-    } else if (!state?.currentQuestion) {
+    // больше не автозапускаем аудио по состоянию — только по кнопке ведущего
+    if (!state?.currentQuestion) {
       currentQuestionId = null;
       answerAudioPlayedForQuestionId = null;
     }
@@ -192,7 +148,11 @@
     if (data.url && !pausedByBuzz) {
       window.audioPlayer.volume = 1;
       window.audioPlayer.muted = false;
-      window.audioPlayer.src = data.url;
+      const currentSrc = window.audioPlayer.src || '';
+      const sameTrack = currentSrc.endsWith(data.url);
+      if (!sameTrack) {
+        window.audioPlayer.src = data.url;
+      }
       window.audioPlayer.play().catch(() => {});
     }
   });
@@ -237,12 +197,10 @@
 
   window.socket.on('game:question-started', (data) => {
     (window.socketEvents['game:question-started'] || []).forEach(fn => fn(data));
-    if (data.audioUrl && data.question?.id) {
+    // только обновляем текущий вопрос для служебной логики, аудио не запускаем автоматически
+    if (data.question?.id) {
       currentQuestionId = data.question.id;
-      window.audioPlayer.volume = 1;
-      window.audioPlayer.muted = false;
-      window.audioPlayer.src = data.audioUrl;
-      window.audioPlayer.play().catch(() => {});
+      answerAudioPlayedForQuestionId = null;
     }
   });
 

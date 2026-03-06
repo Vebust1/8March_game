@@ -2,20 +2,20 @@
   "id": "bonus-010",
   "order": 10,
   "hintBlocks": [
-    { "type": "text", "content": "Если спросят меня где взяла ... ?" }
+    { "type": "text", "content": "Прозрачная слеза русского веселья" }
   ],
   "questionBlocks": [
-    { "type": "text", "content": "Назовите группу, исполняющую кавер" },
-    { "type": "audio", "file": "10_Заточка.mp3" }
+    { "type": "text", "content": "Назовите автора песни" },
+    { "type": "audio", "file": "10_Евгений_Григорьев.mp3" }
   ],
   "answerBlocks": [
-    { "type": "text", "content": "Заточка" }
+    { "type": "text", "content": "Евгений Григорьев" }
   ],
   "options": [
-    { "id": "a", "text": "Anacondaz", "correct": false },
-    { "id": "b", "text": "Заточка", "correct": true },
-    { "id": "c", "text": "Дайте танк (!)", "correct": false },
-    { "id": "d", "text": "F.P.G.", "correct": false }
+    { "id": "a", "text": "Григорий Лепс", "correct": false },
+    { "id": "b", "text": "Евгений Григорьев", "correct": true },
+    { "id": "c", "text": "Стас Михайлов", "correct": false },
+    { "id": "d", "text": "Сергей Наговицын", "correct": false }
   ],
   "allowMultiple": false
 }
