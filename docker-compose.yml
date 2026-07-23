@@ -4,7 +4,7 @@ services:
     restart: unless-stopped
     environment:
       - PORT=3001
-      - PLAYER_BASE_URL=https://auto-n8n-ai.ru
+      - PLAYER_BASE_URL=https://your_domain.ru
     ports:
       - "3001:3001"
 
